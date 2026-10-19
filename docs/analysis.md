@@ -122,8 +122,6 @@ GROUP BY c.customer_unique_id
 ORDER BY total_spending DESC;
 ```
 
-```
-
 ## Analysis 5 — Seller Sales Performance
 
 ### Business Question
