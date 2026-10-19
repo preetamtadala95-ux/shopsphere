@@ -93,53 +93,34 @@ FROM customer_orders;
 
 ## Analysis 4 — Highest-Spending Customers
 
-
-
-\### Business Question
+### Business Question
 
 Which customers generate the highest total spending?
 
-
-
-\### Approach
+### Approach
 
 Joined customer, order, and order-item data to calculate total spending for each unique customer.
 
+### Key Metrics
 
+- **Top Customer Spending:** 13,440
+- **2nd Highest:** 7,388
+- **3rd Highest:** 7,160
 
-\### Key Metrics
-
-\- \*\*Top Customer Spending:\*\* 13,440
-
-\- \*\*2nd Highest:\*\* 7,388
-
-\- \*\*3rd Highest:\*\* 7,160
-
-
-
-\### SQL
+### SQL
 
 ```sql
-
 SELECT
-
-&#x20;   c.customer\_unique\_id,
-
-&#x20;   SUM(x.price) AS total\_spending
-
-FROM olist\_customers\_dataset c
-
-JOIN olist\_orders\_dataset o
-
-&#x20;   ON c.customer\_id = o.customer\_id
-
-JOIN olist\_order\_items\_dataset x
-
-&#x20;   ON x.order\_id = o.order\_id
-
-GROUP BY c.customer\_unique\_id
-
-ORDER BY total\_spending DESC;
+    c.customer_unique_id,
+    SUM(x.price) AS total_spending
+FROM olist_customers_dataset c
+JOIN olist_orders_dataset o
+    ON c.customer_id = o.customer_id
+JOIN olist_order_items_dataset x
+    ON x.order_id = o.order_id
+GROUP BY c.customer_unique_id
+ORDER BY total_spending DESC;
+```
 
 ```
 
