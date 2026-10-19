@@ -34,8 +34,7 @@ SELECT
     ROUND(SUM(price), 2) AS total_sales,
     ROUND(SUM(price) / COUNT(DISTINCT order_id), 2) AS AOV
 FROM olist_order_items_dataset;
-
-
+```
 
 ## Analysis 2 — Sales by Product Category
 
@@ -61,10 +60,7 @@ JOIN olist_order_items_dataset o
     ON o.product_id = p.product_id
 GROUP BY p.product_category_name
 ORDER BY total_category_sales DESC;
-
-
-
-
+```
 ## Analysis 3 — Orders per Customer
 
 ### Business Question
@@ -92,6 +88,8 @@ WITH customer_orders AS (
 SELECT
     AVG(total_orders) AS avg_orders_per_customer
 FROM customer_orders;
+
+```
 
 ## Analysis 4 — Highest-Spending Customers
 
@@ -143,8 +141,7 @@ GROUP BY c.customer\_unique\_id
 
 ORDER BY total\_spending DESC;
 
-
-
+```
 
 ## Analysis 5 — Seller Sales Performance
 
@@ -168,7 +165,7 @@ FROM olist_order_items_dataset
 GROUP BY seller_id
 ORDER BY seller_sales DESC
 LIMIT 3;
-
+```
 
 ## Analysis 6 — Order Status Performance
 
@@ -196,7 +193,7 @@ SELECT
 FROM olist_orders_dataset
 GROUP BY order_status
 ORDER BY status_count DESC;
-
+```
 ## Analysis 7 — Payment Behavior
 
 ### Business Question
@@ -220,7 +217,7 @@ SELECT
 FROM olist_order_payments_dataset
 GROUP BY payment_type
 ORDER BY payment_count DESC;
-
+```
 
 ## Analysis 8 — Product Sales Performance
 
@@ -247,7 +244,7 @@ JOIN olist_products_dataset p
 GROUP BY o.product_id, p.product_category_name
 ORDER BY product_sales DESC
 LIMIT 3;
-
+```
 ## Analysis 9 — Repeat Customer Behavior
 
 ### Business Question
@@ -276,7 +273,7 @@ SELECT
     / COUNT(customer_unique_id) * 100 AS repeat_customer_percentage
 FROM customer_behaviour;
 
-
+```
 
 ## Analysis 10 — Average Customer Spending
 
